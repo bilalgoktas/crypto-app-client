@@ -1,0 +1,49 @@
+.container {
+    margin: 0 auto;
+    width: 300px;
+    border: 1px solid red;
+    height: 380px;
+    padding: 2rem;
+    border-radius: 48px;
+}
+
+.container .topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.container .topSection .percentage {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.container .topSection .percentage span {
+    font-size: 2rem;
+}
+
+.container .coinName {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.container .coinName span {
+    font-size: 1rem;
+}
+
+.container .price {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.container .price span {
+    font-size: 2rem;
+}
+
+.container .volumeNumber {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
