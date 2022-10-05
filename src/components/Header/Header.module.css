@@ -1,0 +1,36 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 40px;
+    border: 1px solid red;
+    color: #fff;
+}
+
+.leftContainer{
+    width: 30%;
+}
+
+.centerContainer {
+    text-align: center;
+}
+
+.rightContainer {
+    width: 30%;
+    text-align: end;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.container span {
+    margin-left: 1rem
+}
