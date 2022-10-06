@@ -16,6 +16,7 @@ const TopList = () => {
       {topTwenty.data?.map((item) => (
         <ListItem
           key={item.id}
+          id={item.id}
           symbol={item.symbol}
           convert={"USD"}
           price={item.quote["USD"].price}

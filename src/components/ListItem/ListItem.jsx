@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./ListItem.module.css";
 import digitFixer from "../../utils/digitFixer";
+import { AppContext } from "../../contexts/AppContext";
 
-const ListItem = ({ symbol, convert, price, change, volume }) => {
+const ListItem = ({ id, symbol, convert, price, change, volume }) => {
+  const { favCryptos, addToFav, removeFromFav } = useContext(AppContext);
+  const listItem = { id, symbol, convert, price, change, volume };
+
   return (
     <div className={styles.container}>
-      <button>Add to fav</button>
+      <button
+        onClick={
+          favCryptos.some((item) => item.id === id)
+            ? (e) => removeFromFav(e, id)
+            : (e) => addToFav(e, listItem)
+        }
+      >
+        {favCryptos.some((item) => item.id === id) ? (
+          <p>Remove from Fav</p>
+        ) : (
+          <p>Add to Fav</p>
+        )}
+      </button>
       <p>
         {symbol} / {convert}
       </p>

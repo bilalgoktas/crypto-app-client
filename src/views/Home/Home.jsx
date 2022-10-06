@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import Landing from "../../components/Landing/Landing";
 import Populars from "../../components/Populars/Populars";
 import TopList from "../../components/TopList/TopList";
+import { AppContext } from "../../contexts/AppContext";
 
 const Home = () => {
   const [popMetaDatas, setPopMetaDatas] = useState([]);
   const [popPrices, setPopPrices] = useState([]);
+
+  const { addToFav, removeFromFav } = useContext(AppContext);
+
   useEffect(() => {
     const metaDataUrls = [
       "http://localhost:5000/metadata/1",
