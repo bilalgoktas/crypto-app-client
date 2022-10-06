@@ -3,9 +3,10 @@ import styles from "./ListItem.module.css";
 import digitFixer from "../../utils/digitFixer";
 import { AppContext } from "../../contexts/AppContext";
 
-const ListItem = ({ id, symbol, convert, price, change, volume }) => {
+const ListItem = ({ id, symbol, price, change, volume }) => {
   const { favCryptos, addToFav, removeFromFav } = useContext(AppContext);
-  const listItem = { id, symbol, convert, price, change, volume };
+  const listItem = { id, symbol, price, change, volume };
+  const { currentFiat } = useContext(AppContext);
 
   return (
     <div className={styles.container}>
@@ -23,7 +24,7 @@ const ListItem = ({ id, symbol, convert, price, change, volume }) => {
         )}
       </button>
       <p>
-        {symbol} / {convert}
+        {symbol} / {currentFiat}
       </p>
       <p>{digitFixer(price, 2)}</p>
       <p>{digitFixer(change, 2)}</p>

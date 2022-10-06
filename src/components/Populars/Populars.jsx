@@ -10,15 +10,7 @@ const Populars = () => {
     "http://localhost:5000/metadata/3",
   ]);
 
-  const { data, error, isLoaded } = useMultipleFetch(metaDataUrls);
-
-  const [priceUrls, setPriceUrls] = useState([
-    "http://localhost:5000/price/1",
-    "http://localhost:5000/price/2",
-    "http://localhost:5000/price/3",
-  ]);
-
-  const prices = useMultipleFetch(priceUrls).data;
+  const { result, error, isLoaded } = useMultipleFetch(metaDataUrls);
 
   return (
     <div className={styles.container}>
@@ -27,8 +19,8 @@ const Populars = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        data.map((item, index) => (
-          <PopularCard key={index} index={index} item={item} prices={prices} />
+        result.map((item, index) => (
+          <PopularCard key={index} index={index} item={item} />
         ))
       )}
     </div>

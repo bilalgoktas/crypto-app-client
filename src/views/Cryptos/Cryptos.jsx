@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
 
 const Cryptos = () => {
-  const { data, error, isLoaded } = useFetch("http://localhost:5000/all");
+  const { result, error, isLoaded } = useFetch("http://localhost:5000/all");
 
   return (
     <div className={styles.container}>
@@ -13,7 +13,7 @@ const Cryptos = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        data.data.map((item) => (
+        result.data?.map((item) => (
           <ListItem
             key={item.id}
             id={item.id}

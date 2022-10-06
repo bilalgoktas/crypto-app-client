@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 export const AppContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
+  const [currentFiat, setCurrentFiat] = useState("USD");
   const [favCryptos, setFavCryptos] = useState([]);
 
   const addToFav = (e, item) => {
@@ -20,6 +21,8 @@ export const AppContextProvider = ({ children }) => {
     setFavCryptos,
     addToFav,
     removeFromFav,
+    currentFiat,
+    setCurrentFiat,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

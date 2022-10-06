@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import ListItem from "../ListItem/ListItem";
 import styles from "./TopList.module.css";
 
 const TopList = () => {
-  const { data, error, isLoaded } = useFetch(
-    "http://localhost:5000/top20?convert=USD"
+  const { currentFiat } = useContext(AppContext);
+
+  const { result, error, isLoaded } = useFetch(
+    `http://localhost:5000/top20?convert=${currentFiat}`
   );
 
   return (
@@ -15,15 +18,14 @@ const TopList = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        data.data.map((item) => (
+        result.data.map((item) => (
           <ListItem
             key={item.id}
             id={item.id}
             symbol={item.symbol}
-            convert={"USD"}
-            price={item.quote["USD"].price}
-            change={item.quote["USD"].percent_change_24h}
-            volume={item.quote["USD"].volume_24h}
+            price={item.quote[currentFiat]?.price}
+            change={item.quote[currentFiat]?.percent_change_24h}
+            volume={item.quote[currentFiat]?.volume_24h}
           />
         ))
       )}
