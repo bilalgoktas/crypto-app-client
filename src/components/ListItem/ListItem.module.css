@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.container p {
+  margin-right: 2rem;
+}
