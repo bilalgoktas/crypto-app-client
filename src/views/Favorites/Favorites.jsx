@@ -9,6 +9,7 @@ const Favorites = () => {
     <div className={styles.container}>
       {favCryptos.map((item) => (
         <ListItem
+          key={item.id}
           id={item.id}
           symbol={item.symbol}
           convert={item.convert}
