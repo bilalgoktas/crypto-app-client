@@ -4,7 +4,9 @@ import ListItem from "../ListItem/ListItem";
 import styles from "./TopList.module.css";
 
 const TopList = () => {
-  const { data, error, isLoaded } = useFetch("http://localhost:5000/top20");
+  const { data, error, isLoaded } = useFetch(
+    "http://localhost:5000/top20?convert=USD"
+  );
 
   return (
     <ul>

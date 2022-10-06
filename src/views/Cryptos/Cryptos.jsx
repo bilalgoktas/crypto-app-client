@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ListItem from "../../components/ListItem/ListItem";
 import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
