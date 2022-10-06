@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Home.module.css";
-import useMultipleFetch from "../../hooks/useMultipleFetch";
 import Landing from "../../components/Landing/Landing";
-import PopularCard from "../../components/PopularCard/PopularCard";
 import Populars from "../../components/Populars/Populars";
 
 const Home = () => {
