@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ListItem from "../../components/ListItem/ListItem";
+import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
 
 const Cryptos = () => {
-  const [cryptos, setCryptos] = useState([]);
-  const [error, setError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/all")
-      .then((response) => response.json())
-      .then((list) => setCryptos(list))
-      .catch((err) => setError(err))
-      .finally(() => setIsLoaded(true));
-  }, []);
+  const { data, error, isLoaded } = useFetch("http://localhost:5000/all");
 
   return (
     <div className={styles.container}>
@@ -22,7 +13,7 @@ const Cryptos = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        cryptos.data.map((item) => (
+        data.data.map((item) => (
           <ListItem
             key={item.id}
             id={item.id}
