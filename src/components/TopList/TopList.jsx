@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import ListItem from "../ListItem/ListItem";
@@ -12,24 +13,27 @@ const TopList = () => {
   );
 
   return (
-    <ul>
-      {!isLoaded ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error occurred</p>
-      ) : (
-        result.data.map((item) => (
-          <ListItem
-            key={item.id}
-            id={item.id}
-            symbol={item.symbol}
-            price={item.quote[currentFiat]?.price}
-            change={item.quote[currentFiat]?.percent_change_24h}
-            volume={item.quote[currentFiat]?.volume_24h}
-          />
-        ))
-      )}
-    </ul>
+    <div>
+      <ul>
+        {!isLoaded ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error occurred</p>
+        ) : (
+          result.data.map((item) => (
+            <ListItem
+              key={item.id}
+              id={item.id}
+              symbol={item.symbol}
+              price={item.quote[currentFiat]?.price}
+              change={item.quote[currentFiat]?.percent_change_24h}
+              volume={item.quote[currentFiat]?.volume_24h}
+            />
+          ))
+        )}
+      </ul>
+      <Link to="/cryptos">See more cryptocurrencies</Link>
+    </div>
   );
 };
 
