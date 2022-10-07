@@ -5,9 +5,9 @@ import digitFixer from "../../utils/digitFixer";
 import { AppContext } from "../../contexts/AppContext";
 
 const ListItem = ({ id, symbol, price, change, volume }) => {
-  const { favCryptos, addToFav, removeFromFav } = useContext(AppContext);
+  const { favCryptos, addToFav, removeFromFav, currentFiat } =
+    useContext(AppContext);
   const listItem = { id, symbol, price, change, volume };
-  const { currentFiat } = useContext(AppContext);
 
   return (
     <Link to={`/cryptos/${id}`}>
