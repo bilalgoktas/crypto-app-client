@@ -10,7 +10,7 @@ const Populars = () => {
     "http://localhost:5000/metadata/3",
   ]);
 
-  const { result, error, isLoaded } = useMultipleFetch(metaDataUrls);
+  const { data, error, isLoaded } = useMultipleFetch(metaDataUrls);
 
   return (
     <div className={styles.container}>
@@ -19,7 +19,7 @@ const Populars = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        result.map((item, index) => (
+        data.map((item, index) => (
           <PopularCard key={index} index={index} item={item} />
         ))
       )}

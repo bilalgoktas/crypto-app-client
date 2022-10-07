@@ -8,7 +8,7 @@ import styles from "./TopList.module.css";
 const TopList = () => {
   const { currentFiat } = useContext(AppContext);
 
-  const { result, error, isLoaded } = useFetch(
+  const { data, error, isLoaded } = useFetch(
     `http://localhost:5000/top20?convert=${currentFiat}`
   );
 
@@ -20,7 +20,7 @@ const TopList = () => {
         ) : error ? (
           <p>Error occurred</p>
         ) : (
-          result.data.map((item) => (
+          data.data.map((item) => (
             <ListItem
               key={item.id}
               id={item.id}

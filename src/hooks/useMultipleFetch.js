@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
 const useMultipleFetch = (urls) => {
-  const [result, setResult] = useState();
+  const [data, setData] = useState();
   const [error, setError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     Promise.all(urls.map((url) => fetch(url)))
-      .then((results) => Promise.all(results.map((result) => result.json())))
-      .then((data) => setResult(data))
+      .then((datas) => Promise.all(datas.map((data) => data.json())))
+      .then((data) => setData(data))
       .catch(() => setError(true))
       .finally(() => setIsLoaded(true));
   }, [urls]);
 
-  return { result, error, isLoaded };
+  return { data, error, isLoaded };
 };
 
 export default useMultipleFetch;

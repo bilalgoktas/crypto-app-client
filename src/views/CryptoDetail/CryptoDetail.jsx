@@ -7,12 +7,12 @@ import styles from "./CryptoDetail.module.css";
 const CryptoDetail = () => {
   let { id } = useParams();
   const {
-    result: metaData,
+    data: metaData,
     error: metaError,
     isLoaded: metaIsLoaded,
   } = useFetch(`http://localhost:5000/metadata/${id}`);
   const {
-    result: price,
+    data: price,
     error: priceError,
     isLoaded: priceIsLoaded,
   } = useFetch(`http://localhost:5000/price/${id}`);

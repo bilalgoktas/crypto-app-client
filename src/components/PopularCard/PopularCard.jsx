@@ -4,7 +4,7 @@ import digitFixer from "../../utils/digitFixer";
 import useFetch from "../../hooks/useFetch";
 
 const PopularCard = ({ index, item }) => {
-  const { result, error, isLoaded } = useFetch(`http://localhost:5000/price/1`);
+  const { data, error, isLoaded } = useFetch(`http://localhost:5000/price/1`);
   console.log();
   return (
     <>
@@ -22,7 +22,7 @@ const PopularCard = ({ index, item }) => {
             <div className={styles.change}>
               <p className={styles.period}>Last 24hrs</p>
               <p className={styles.percentage}>
-                {digitFixer(result.data[1].quote["USD"].percent_change_24h, 2)}%
+                {digitFixer(data.data[1].quote["USD"].percent_change_24h, 2)}%
               </p>
             </div>
           </div>
@@ -32,12 +32,12 @@ const PopularCard = ({ index, item }) => {
           </p>
           <p className={styles.price}>
             <span>$</span>
-            {digitFixer(result.data[1].quote["USD"].price, 2)}
+            {digitFixer(data.data[1].quote["USD"].price, 2)}
           </p>
           <div className={styles.volume}>
             <p>Volume in last 24hrs</p>
             <p className={styles.volumeNumber}>
-              ${digitFixer(result.data[1].quote["USD"].volume_24h, 0)}
+              ${digitFixer(data.data[1].quote["USD"].volume_24h, 0)}
             </p>
           </div>
         </div>
