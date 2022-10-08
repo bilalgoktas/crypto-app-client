@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import styles from "./CryptoDetail.module.css";
+import digitFixer from "../../utils/digitFixer";
 
 const CryptoDetail = () => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
@@ -40,9 +41,9 @@ const CryptoDetail = () => {
           <p>{listItem.symbol}</p>
           <p>{listItem.name}</p>
           <p>{metaData.data[1].description}</p>
-          <p>{listItem.price}</p>
-          <p>{listItem.volume}</p>
-          <p>{listItem.change}</p>
+          <p>{digitFixer(listItem.price, 2)}</p>
+          <p>{digitFixer(listItem.volume, 0)}</p>
+          <p>{digitFixer(listItem.change, 2)}</p>
           <button
             onClick={
               favCryptos.some((item) => item.id === listItem.id)
