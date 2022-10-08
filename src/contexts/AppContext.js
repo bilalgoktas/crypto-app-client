@@ -19,12 +19,12 @@ export const AppContextProvider = ({ children }) => {
   }, [currentFiat]);
 
   const addToFav = async (e, item) => {
-    e.preventDefault();
+    e.stopPropagation();
     setFavCryptos((prevState) => [...prevState, item]);
   };
 
   const removeFromFav = async (e, id) => {
-    e.preventDefault();
+    e.stopPropagation();
     const favsToSet = favCryptos.filter((item) => item.id !== id);
     setFavCryptos(favsToSet);
   };

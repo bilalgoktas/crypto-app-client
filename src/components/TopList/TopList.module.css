@@ -1,0 +1,25 @@
+.container {
+  margin: 0 auto;
+}
+
+.container table {
+  margin: 0 auto;
+  width: 720px;
+  border-collapse: collapse;
+}
+
+.name {
+  text-align: start;
+}
+
+.price {
+  text-align: end;
+}
+
+.change {
+  text-align: end;
+}
+
+.volume {
+  text-align: end;
+}

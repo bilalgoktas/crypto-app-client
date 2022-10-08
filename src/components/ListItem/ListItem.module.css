@@ -1,8 +1,27 @@
-.container {
-  display: flex;
-  border: 1px solid red;
+.rowContainer {
+  border-bottom: 1px solid red;
 }
 
-.container p {
-  margin-right: 2rem;
+.rowContainer td {
+  padding: 0.5rem 0;
+}
+
+.favBtn {
+  text-align: center;
+}
+
+.name {
+  text-align: start;
+}
+
+.price {
+  text-align: end;
+}
+
+.change {
+  text-align: end;
+}
+
+.volume {
+  text-align: end;
 }

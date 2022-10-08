@@ -13,12 +13,19 @@ const TopList = () => {
   );
 
   return (
-    <div>
-      <ul>
+    <div className={styles.container}>
+      <table>
+        <tr>
+          <th></th>
+          <th className={styles.name}>Name</th>
+          <th className={styles.price}>Price</th>
+          <th className={styles.change}>Change 24h</th>
+          <th className={styles.volume}>Volume</th>
+        </tr>
         {!isLoaded ? (
-          <p>Loading...</p>
+          <td>Loading...</td>
         ) : error ? (
-          <p>Error occurred</p>
+          <td>Error occurred</td>
         ) : (
           data.data.map((item) => (
             <ListItem
@@ -31,7 +38,7 @@ const TopList = () => {
             />
           ))
         )}
-      </ul>
+      </table>
       <Link to="/cryptos">See more cryptocurrencies</Link>
     </div>
   );
