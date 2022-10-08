@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
-import useMultipleFetch from "../../hooks/useMultipleFetch";
 import styles from "./CryptoDetail.module.css";
 
 const CryptoDetail = () => {

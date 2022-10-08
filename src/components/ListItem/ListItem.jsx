@@ -12,19 +12,11 @@ const ListItem = ({ id, symbol, price, change, volume }) => {
   return (
     <Link to={`/cryptos/${id}`}>
       <div className={styles.container}>
-        <button
-          onClick={
-            favCryptos.some((item) => item.id === id)
-              ? (e) => removeFromFav(e, id)
-              : (e) => addToFav(e, listItem)
-          }
-        >
-          {favCryptos.some((item) => item.id === id) ? (
-            <p>Remove from Fav</p>
-          ) : (
-            <p>Add to Fav</p>
-          )}
-        </button>
+        {favCryptos.some((item) => item.id === id) ? (
+          <button onClick={(e) => removeFromFav(e, id)}>Remove from fav</button>
+        ) : (
+          <button onClick={(e) => addToFav(e, listItem)}>Add to fav</button>
+        )}
         <p>
           {symbol} / {currentFiat}
         </p>

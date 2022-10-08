@@ -30,9 +30,15 @@ const Header = () => {
       </div>
       {isFiatTogglerOpen && (
         <div>
-          <button onClick={() => setCurrentFiat("USD")}>USD</button>
-          <button onClick={() => setCurrentFiat("EUR")}>EUR</button>
-          <button onClick={() => setCurrentFiat("GBP")}>GBP</button>
+          <button onClick={(e) => setCurrentFiat(e.target.innerText)}>
+            USD
+          </button>
+          <button onClick={(e) => setCurrentFiat(e.target.innerText)}>
+            EUR
+          </button>
+          <button onClick={(e) => setCurrentFiat(e.target.innerText)}>
+            GBP
+          </button>
         </div>
       )}
     </div>

@@ -1,19 +1,32 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const AppContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
-  const [currentFiat, setCurrentFiat] = useState("USD");
-  const [favCryptos, setFavCryptos] = useState([]);
+  const [currentFiat, setCurrentFiat] = useState(
+    localStorage.getItem("currentFiat") || "USD"
+  );
+  const [favCryptos, setFavCryptos] = useState(
+    JSON.parse(localStorage.getItem("favCryptos")) || []
+  );
 
-  const addToFav = (e, item) => {
+  useEffect(() => {
+    localStorage.setItem("favCryptos", JSON.stringify(favCryptos));
+  }, [favCryptos]);
+
+  useEffect(() => {
+    localStorage.setItem("currentFiat", currentFiat);
+  }, [currentFiat]);
+
+  const addToFav = async (e, item) => {
     e.preventDefault();
     setFavCryptos((prevState) => [...prevState, item]);
   };
 
-  const removeFromFav = (e, id) => {
+  const removeFromFav = async (e, id) => {
     e.preventDefault();
-    setFavCryptos(favCryptos.filter((item) => item.id !== id));
+    const favsToSet = favCryptos.filter((item) => item.id !== id);
+    setFavCryptos(favsToSet);
   };
 
   const value = {
