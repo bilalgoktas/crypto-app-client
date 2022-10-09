@@ -4,7 +4,10 @@ export const AppContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
   const [currentFiat, setCurrentFiat] = useState(
-    localStorage.getItem("currentFiat") || "USD"
+    JSON.parse(localStorage.getItem("currentFiat")) || {
+      symbol: "$",
+      name: "USD",
+    }
   );
   const [favCryptos, setFavCryptos] = useState(
     JSON.parse(localStorage.getItem("favCryptos")) || []
@@ -15,7 +18,7 @@ export const AppContextProvider = ({ children }) => {
   }, [favCryptos]);
 
   useEffect(() => {
-    localStorage.setItem("currentFiat", currentFiat);
+    localStorage.setItem("currentFiat", JSON.stringify(currentFiat));
   }, [currentFiat]);
 
   const addToFav = async (e, item) => {
@@ -29,6 +32,12 @@ export const AppContextProvider = ({ children }) => {
     setFavCryptos(favsToSet);
   };
 
+  const fiatsArray = [
+    { symbol: "$", name: "USD" },
+    { symbol: "€", name: "EUR" },
+    { symbol: "£", name: "GBP" },
+  ];
+
   const value = {
     favCryptos,
     setFavCryptos,
@@ -36,6 +45,7 @@ export const AppContextProvider = ({ children }) => {
     removeFromFav,
     currentFiat,
     setCurrentFiat,
+    fiatsArray,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

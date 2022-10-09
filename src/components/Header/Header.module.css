@@ -8,9 +8,11 @@
   align-items: center;
   padding: 2rem;
   height: 40px;
-  border: 1px solid red;
   color: #fff;
-  background-color: black;
+  background-color: #330033;
+  border-bottom: 1px solid #3f003f;
+  box-shadow: 0 4px 2px -2px #3f003f;
+  z-index: 100;
 }
 
 .leftContainer {
@@ -29,8 +31,39 @@
 .link {
   text-decoration: none;
   color: #fff;
+  margin-right: 2rem;
 }
 
 .container span {
   margin-left: 1rem;
+  cursor: pointer;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+}
+
+.fiatSwitchContainer {
+  position: fixed;
+  top: 70px;
+  right: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fiatSwitchContainer button {
+  width: 112px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-bottom: 1px solid #330033;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.fiatSwitchContainer button:hover {
+  background-color: #aeaeae;
 }

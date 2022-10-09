@@ -2,6 +2,32 @@
   margin: 100px auto 0 auto;
   max-width: 1200px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container h2 {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.searchContainer {
+  position: relative;
+  align-self: flex-end;
+}
+
+.searchContainer img {
+  position: absolute;
+  width: 18px;
+  transform: translateY(50%);
+  margin-left: 0.5rem;
+}
+
+.searchContainer input {
+  width: 240px;
+  padding: 0.5rem 2rem;
+
+  margin-bottom: 2rem;
 }
 
 .container table {
@@ -12,6 +38,7 @@
 
 .container th {
   padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .name {

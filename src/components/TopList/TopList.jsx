@@ -9,7 +9,7 @@ const TopList = () => {
   const { currentFiat } = useContext(AppContext);
 
   const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/top20?convert=${currentFiat}`
+    `http://localhost:5000/top20?convert=${currentFiat.name}`
   );
 
   return (
@@ -21,9 +21,9 @@ const TopList = () => {
           <th className={styles.rank}>Rank</th>
           <th></th>
           <th className={styles.name}>Name</th>
-          <th className={styles.price}>Price ({currentFiat})</th>
+          <th className={styles.price}>Price ({currentFiat.symbol})</th>
           <th className={styles.change}>Change 24h</th>
-          <th className={styles.volume}>Volume ({currentFiat})</th>
+          <th className={styles.volume}>Volume ({currentFiat.symbol})</th>
         </tr>
         {!isLoaded ? (
           <td>Loading...</td>
@@ -37,9 +37,9 @@ const TopList = () => {
               rank={item.cmc_rank}
               name={item.name}
               symbol={item.symbol}
-              price={item.quote[currentFiat]?.price}
-              change={item.quote[currentFiat]?.percent_change_24h}
-              volume={item.quote[currentFiat]?.volume_24h}
+              price={item.quote[currentFiat.name]?.price}
+              change={item.quote[currentFiat.name]?.percent_change_24h}
+              volume={item.quote[currentFiat.name]?.volume_24h}
             />
           ))
         )}

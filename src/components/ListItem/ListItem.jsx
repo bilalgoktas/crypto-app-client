@@ -10,7 +10,7 @@ import useFetch from "../../hooks/useFetch";
 const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
     useContext(AppContext);
-  const listItem = { id, symbol, price, change, volume };
+  const listItem = { id, symbol, name, price, change, volume };
 
   const navigate = useNavigate();
   const handleRowClick = () => {

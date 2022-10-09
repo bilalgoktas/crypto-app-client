@@ -26,9 +26,9 @@ const CryptoDetail = () => {
     id: metaData?.data[1]?.id,
     symbol: metaData?.data[1].symbol,
     name: metaData?.data[1].name,
-    price: price?.data[1].quote[currentFiat].price,
-    change: price?.data[1].quote[currentFiat].percent_change_24h,
-    volume: price?.data[1].quote[currentFiat].volume_24h,
+    price: price?.data[1].quote[currentFiat.name].price,
+    change: price?.data[1].quote[currentFiat.name].percent_change_24h,
+    volume: price?.data[1].quote[currentFiat.name].volume_24h,
   };
 
   return (

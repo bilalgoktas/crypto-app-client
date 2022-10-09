@@ -68,9 +68,9 @@ const Cryptos = () => {
           <th></th>
           <th></th>
           <th className={styles.name}>Name</th>
-          <th className={styles.price}>Price</th>
+          <th className={styles.price}>Price ({currentFiat.symbol})</th>
           <th className={styles.change}>Change 24h</th>
-          <th className={styles.volume}>Volume</th>
+          <th className={styles.volume}>Volume ({currentFiat.symbol})</th>
         </tr>
 
         {!isLoaded ? (
@@ -91,9 +91,9 @@ const Cryptos = () => {
                 id={item.id}
                 name={item.name}
                 symbol={item.symbol}
-                price={item.quote[currentFiat]?.price}
-                change={item.quote[currentFiat]?.percent_change_24h}
-                volume={item.quote[currentFiat]?.volume_24h}
+                price={item.quote[currentFiat.name]?.price}
+                change={item.quote[currentFiat.name]?.percent_change_24h}
+                volume={item.quote[currentFiat.name]?.volume_24h}
               />
             ))
         )}

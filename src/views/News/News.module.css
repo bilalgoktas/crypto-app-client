@@ -1,0 +1,11 @@
+.container {
+  margin: 150px auto 0 auto;
+  max-width: 1200px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.container img {
+  width: 640px;
+  margin-bottom: 5rem;
+}

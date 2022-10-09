@@ -6,6 +6,7 @@ import Favorites from "./views/Favorites/Favorites";
 import Layout from "./components/Layout/Layout";
 import AppContextProvider from "./contexts/AppContext";
 import CryptoDetail from "./views/CryptoDetail/CryptoDetail";
+import News from "./views/News/News";
 
 const Navigator = () => {
   return (
@@ -18,6 +19,7 @@ const Navigator = () => {
               <Route path="/cryptos/:category" element={<Cryptos />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/crypto/:id" element={<CryptoDetail />} />
+              <Route path="/news" element={<News />} />
             </Routes>
           </Layout>
         </AppContextProvider>
