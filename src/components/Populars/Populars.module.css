@@ -1,5 +1,6 @@
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 5rem 0;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 5rem auto;
 }

@@ -1,10 +1,32 @@
 .container {
   margin: 100px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+}
+
+.searchContainer {
+  position: relative;
+  align-self: flex-end;
+}
+
+.searchContainer img {
+  position: absolute;
+  width: 18px;
+  transform: translateY(50%);
+  margin-left: 0.5rem;
+}
+
+.searchContainer input {
+  width: 240px;
+  padding: 0.5rem 2rem;
+
+  margin-bottom: 2rem;
 }
 
 .container table {
-  margin: 0 auto;
-  width: 1200px;
+  align-self: center;
+  width: 100%;
   border-collapse: collapse;
 }
 

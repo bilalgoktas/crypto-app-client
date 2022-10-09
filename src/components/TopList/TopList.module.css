@@ -4,12 +4,18 @@
 
 .container table {
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
   border-collapse: collapse;
 }
 
 .container th {
   padding: 0.5rem 1rem;
+  border-bottom: 1px solid #cccccc;
+}
+
+.rank {
+  text-align: center;
+  padding: 0.5rem 0 !important;
 }
 
 .name {

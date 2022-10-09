@@ -1,6 +1,10 @@
 .rowContainer {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #cccccc;
   cursor: pointer;
+}
+
+.rowContainer:hover {
+  background-color: #f3f3f3;
 }
 
 .rowContainer td {
@@ -15,8 +19,29 @@
   text-align: center;
 }
 
+.rank {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
 .name {
   text-align: start;
+}
+
+.name span:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 1rem;
 }
 
 .price {

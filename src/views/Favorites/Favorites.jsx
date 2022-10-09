@@ -10,6 +10,7 @@ const Favorites = () => {
       <table>
         <tr>
           <th></th>
+          <th></th>
           <th className={styles.name}>Name</th>
           <th className={styles.price}>Price</th>
           <th className={styles.change}>Change 24h</th>
