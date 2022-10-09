@@ -1,17 +1,59 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
 import searchIcon from "../../assets/svg/search.svg";
+import { useParams } from "react-router-dom";
+import classNames from "classnames";
 
 const Cryptos = () => {
   const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  let { category } = useParams();
+
   const { currentFiat } = useContext(AppContext);
-  const { data, error, isLoaded } = useFetch("http://localhost:5000/all");
+  const { data, error, isLoaded } = useFetch(
+    `http://localhost:5000/cryptos/${category}`
+  );
 
   return (
     <div className={styles.container}>
+      <div className={styles.categorySwitcher}>
+        <Link
+          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
+          className={classNames(
+            styles.link,
+            activeCategory === "all" && styles.active
+          )}
+          to="/cryptos/all"
+        >
+          ALL
+        </Link>
+        <Link
+          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
+          className={classNames(
+            styles.link,
+            activeCategory === "coins" && styles.active
+          )}
+          to="/cryptos/coins"
+        >
+          COINS
+        </Link>
+        <Link
+          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
+          className={classNames(
+            styles.link,
+            activeCategory === "tokens" && styles.active
+          )}
+          to="/cryptos/tokens"
+        >
+          TOKENS
+        </Link>
+      </div>
+
       <div className={styles.searchContainer}>
         <img src={searchIcon} alt="" />
         <input

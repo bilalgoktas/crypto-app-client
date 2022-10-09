@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
-        <Link className={styles.link} to="/cryptos">
+        <Link className={styles.link} to="/cryptos/all">
           Cryptocurrencies
         </Link>
       </div>

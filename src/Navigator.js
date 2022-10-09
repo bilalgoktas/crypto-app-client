@@ -15,9 +15,9 @@ const Navigator = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cryptos" element={<Cryptos />} />
+              <Route path="/cryptos/:category" element={<Cryptos />} />
               <Route path="/favorites" element={<Favorites />} />
-              <Route path="/cryptos/:id" element={<CryptoDetail />} />
+              <Route path="/crypto/:id" element={<CryptoDetail />} />
             </Routes>
           </Layout>
         </AppContextProvider>

@@ -14,7 +14,7 @@ const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
 
   const navigate = useNavigate();
   const handleRowClick = () => {
-    navigate(`/cryptos/${id}`);
+    navigate(`/crypto/${id}`);
   };
 
   const { data, error, isLoaded } = useFetch(
