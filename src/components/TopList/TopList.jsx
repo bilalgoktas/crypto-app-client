@@ -14,7 +14,7 @@ const TopList = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Top 20</h2>
+      <h2>TOP 20</h2>
       <table>
         <tr>
           <th></th>
@@ -44,7 +44,9 @@ const TopList = () => {
           ))
         )}
       </table>
-      <Link to="/cryptos">See more cryptocurrencies</Link>
+      <div className={styles.link}>
+        <Link to="/cryptos">See more cryptocurrencies</Link>
+      </div>
     </div>
   );
 };

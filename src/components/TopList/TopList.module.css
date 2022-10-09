@@ -1,6 +1,11 @@
 .container {
-  margin: 0 auto;
+  margin: 0 auto 10rem auto;
   max-width: 1200px;
+}
+
+.container h2 {
+  margin-bottom: 5rem;
+  font-size: 3rem;
 }
 
 .container table {
@@ -33,4 +38,10 @@
 
 .volume {
   text-align: end;
+}
+
+.link {
+  margin-top: 3rem;
+  text-align: end;
+  font-size: 1.2rem;
 }

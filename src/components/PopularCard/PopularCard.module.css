@@ -1,49 +1,59 @@
 .container {
-    margin: 0 auto;
-    width: 300px;
-    border: 1px solid red;
-    height: 380px;
-    padding: 2rem;
-    border-radius: 48px;
+  margin: 0 auto;
+  width: 300px;
+  height: 380px;
+  padding: 2rem;
+  border-radius: 48px;
+  background-color: #330033;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .container .topSection {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .container .topSection .percentage {
-    font-size: 2.5rem;
-    font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 800;
 }
 
 .container .topSection .percentage span {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .container .coinName {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .container .coinName span {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .container .price {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
 }
 
 .container .price span {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .container .volumeNumber {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }

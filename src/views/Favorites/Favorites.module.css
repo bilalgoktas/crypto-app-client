@@ -1,6 +1,7 @@
 .container {
   margin: 100px auto 0 auto;
   max-width: 1200px;
+  min-height: 100vh;
 }
 
 .container table {
