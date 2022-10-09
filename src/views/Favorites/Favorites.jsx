@@ -7,17 +7,26 @@ const Favorites = () => {
   const { favCryptos } = useContext(AppContext);
   return (
     <div className={styles.container}>
-      {favCryptos.map((item) => (
-        <ListItem
-          key={item.id}
-          id={item.id}
-          symbol={item.symbol}
-          convert={item.convert}
-          price={item.price}
-          change={item.change}
-          volume={item.volume}
-        />
-      ))}
+      <table>
+        <tr>
+          <th></th>
+          <th className={styles.name}>Name</th>
+          <th className={styles.price}>Price</th>
+          <th className={styles.change}>Change 24h</th>
+          <th className={styles.volume}>Volume</th>
+        </tr>
+        {favCryptos.map((item) => (
+          <ListItem
+            key={item.id}
+            id={item.id}
+            symbol={item.symbol}
+            convert={item.convert}
+            price={item.price}
+            change={item.change}
+            volume={item.volume}
+          />
+        ))}
+      </table>
     </div>
   );
 };

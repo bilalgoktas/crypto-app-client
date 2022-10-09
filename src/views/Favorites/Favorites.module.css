@@ -1,3 +1,29 @@
 .container {
-  margin-top: 100px;
+  margin: 100px auto 0 auto;
+}
+
+.container table {
+  margin: 0 auto;
+  width: 1200px;
+  border-collapse: collapse;
+}
+
+.container th {
+  padding: 0.5rem 1rem;
+}
+
+.name {
+  text-align: start;
+}
+
+.price {
+  text-align: end;
+}
+
+.change {
+  text-align: end;
+}
+
+.volume {
+  text-align: end;
 }

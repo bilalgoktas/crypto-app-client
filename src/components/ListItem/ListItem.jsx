@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./ListItem.module.css";
 import digitFixer from "../../utils/digitFixer";
 import { AppContext } from "../../contexts/AppContext";
+import starSolid from "../../assets/svg/star-solid.svg";
+import starRegular from "../../assets/svg/star-regular.svg";
 
 const ListItem = ({ id, symbol, price, change, volume }) => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
@@ -18,9 +20,13 @@ const ListItem = ({ id, symbol, price, change, volume }) => {
     <tr className={styles.rowContainer} onClick={handleRowClick}>
       <td className={styles.favBtn}>
         {favCryptos.some((item) => item.id === id) ? (
-          <button onClick={(e) => removeFromFav(e, id)}>Remove from fav</button>
+          <button onClick={(e) => removeFromFav(e, id)}>
+            <img src={starSolid} alt="" />
+          </button>
         ) : (
-          <button onClick={(e) => addToFav(e, listItem)}>Add to fav</button>
+          <button onClick={(e) => addToFav(e, listItem)}>
+            <img src={starRegular} alt="" />
+          </button>
         )}
       </td>
       <td className={styles.name}>

@@ -1,8 +1,13 @@
 .rowContainer {
   border-bottom: 1px solid red;
+  cursor: pointer;
 }
 
 .rowContainer td {
+  padding: 0.5rem 1rem;
+}
+
+.rowContainer td:nth-child(1) {
   padding: 0.5rem 0;
 }
 
@@ -24,4 +29,15 @@
 
 .volume {
   text-align: end;
+}
+
+.favBtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.favBtn img {
+  width: 18px;
+  height: 18px;
 }
