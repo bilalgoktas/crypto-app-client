@@ -4,6 +4,8 @@ import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import styles from "./CryptoDetail.module.css";
 import digitFixer from "../../utils/digitFixer";
+import starSolid from "../../assets/svg/star-solid.svg";
+import starRegular from "../../assets/svg/star-regular.svg";
 
 const CryptoDetail = () => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
@@ -21,7 +23,7 @@ const CryptoDetail = () => {
   } = useFetch(`http://localhost:5000/price/${id}`);
 
   const listItem = {
-    id: metaData?.data[1].id,
+    id: metaData?.data[1]?.id,
     symbol: metaData?.data[1].symbol,
     name: metaData?.data[1].name,
     price: price?.data[1].quote[currentFiat].price,
@@ -30,6 +32,7 @@ const CryptoDetail = () => {
   };
 
   return (
+    // Change fav handler filter id woth param id when api works!!!
     <>
       {!metaIsLoaded ? (
         <p>Loading...</p>
@@ -37,26 +40,48 @@ const CryptoDetail = () => {
         <p>Error occurred</p>
       ) : (
         <div className={styles.container}>
-          <img src={metaData.data[1].logo} alt="" />
-          <p>{listItem.symbol}</p>
-          <p>{listItem.name}</p>
-          <p>{metaData.data[1].description}</p>
-          <p>{digitFixer(listItem.price, 2)}</p>
-          <p>{digitFixer(listItem.volume, 0)}</p>
-          <p>{digitFixer(listItem.change, 2)}</p>
-          <button
-            onClick={
-              favCryptos.some((item) => item.id === listItem.id)
-                ? (e) => removeFromFav(e, listItem.id)
-                : (e) => addToFav(e, listItem)
-            }
-          >
-            {favCryptos.some((item) => item.id === listItem.id) ? (
-              <p>Remove from Fav</p>
-            ) : (
-              <p>Add to Fav</p>
-            )}
-          </button>
+          <div className={styles.top}>
+            <div className={styles.topLeft}>
+              <img src={metaData.data[1].logo} alt="" />
+              <div className={styles.name}>
+                <p>{listItem.symbol}</p>
+                <p>{listItem.name}</p>
+              </div>
+            </div>
+            <div className={styles.topRight}>
+              <div className={styles.favBtn}>
+                {favCryptos.some(
+                  (item) => item.id === metaData?.data[1]?.id
+                ) ? (
+                  <button
+                    onClick={(e) => removeFromFav(e, metaData?.data[1]?.id)}
+                  >
+                    <img src={starSolid} alt="" /> Remove from favorites
+                  </button>
+                ) : (
+                  <button onClick={(e) => addToFav(e, listItem)}>
+                    <img src={starRegular} alt="" /> Add to favorites
+                  </button>
+                )}
+              </div>
+              <div className={styles.priceChange}>
+                <p>{digitFixer(listItem.price, 2)}</p>
+                <p className={styles.change}>
+                  <span className={styles.label}>Last 24h Change</span>
+                  {digitFixer(listItem.change, 2)}
+                </p>
+              </div>
+
+              <p className={styles.volume}>
+                <span className={styles.label}>Last 24h Volume</span>
+                {digitFixer(listItem.volume, 0)}
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.bottomContainer}>
+            <p>{metaData.data[1].description}</p>
+          </div>
         </div>
       )}
     </>
