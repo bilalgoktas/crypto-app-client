@@ -4,7 +4,9 @@ import digitFixer from "../../utils/digitFixer";
 import useFetch from "../../hooks/useFetch";
 
 const PopularCard = ({ index, item }) => {
-  const { data, error, isLoaded } = useFetch(`http://localhost:5000/price/1`);
+  const { data, error, isLoaded } = useFetch(
+    `http://localhost:5000/price?id=1`
+  );
   console.log();
   return (
     <>

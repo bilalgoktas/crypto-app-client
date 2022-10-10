@@ -15,12 +15,12 @@ const CryptoDetail = () => {
     data: metaData,
     error: metaError,
     isLoaded: metaIsLoaded,
-  } = useFetch(`http://localhost:5000/metadata/${id}`);
+  } = useFetch(`http://localhost:5000/metadata?id=${id}`);
   const {
     data: price,
     error: priceError,
     isLoaded: priceIsLoaded,
-  } = useFetch(`http://localhost:5000/price/${id}`);
+  } = useFetch(`http://localhost:5000/price?convert=${currentFiat}&id=${id}`);
 
   const listItem = {
     id: metaData?.data[1]?.id,

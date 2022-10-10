@@ -18,7 +18,7 @@ const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
   };
 
   const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/metadata/${id}`
+    `http://localhost:5000/metadata?id=${id}`
   );
 
   return (

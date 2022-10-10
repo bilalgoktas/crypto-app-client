@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
+import List from "../List/List";
 import ListItem from "../ListItem/ListItem";
 import styles from "./TopList.module.css";
 
@@ -15,7 +16,15 @@ const TopList = () => {
   return (
     <div className={styles.container}>
       <h2>TOP 20</h2>
-      <table>
+      {!isLoaded ? (
+        <p>Loading ...</p>
+      ) : error ? (
+        <p>Error occurred</p>
+      ) : (
+        <List data={data.data} error={error} isLoaded={isLoaded} />
+      )}
+
+      {/* <table>
         <tr>
           <th></th>
           <th className={styles.rank}>Rank</th>
@@ -43,9 +52,9 @@ const TopList = () => {
             />
           ))
         )}
-      </table>
+      </table> */}
       <div className={styles.link}>
-        <Link to="/cryptos/all/1">See more cryptocurrencies</Link>
+        <Link to="/cryptos/all">See more cryptocurrencies</Link>
       </div>
     </div>
   );

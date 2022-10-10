@@ -41,6 +41,11 @@
   border: 1px solid black;
   margin: 0 0.5rem;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons .link:hover {
+  transform: scale(1.1);
 }
 
 .buttons .link:nth-child(2) {

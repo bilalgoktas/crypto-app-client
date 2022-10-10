@@ -1,6 +1,7 @@
 .container {
   margin: 0 auto 10rem auto;
   max-width: 1200px;
+  padding: 0 1rem;
 }
 
 .container h2 {

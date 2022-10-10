@@ -81,8 +81,9 @@
 
 .pageSwitcher {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
+  padding: 0 2rem;
 }
 
 .pageSwitcher .pageBtn {
@@ -92,13 +93,15 @@
   text-decoration: none;
   color: #000;
   background-color: #e5e5e5;
-  width: 36px;
+  min-width: 36px;
   height: 36px;
   border: none;
   font-size: 1rem;
   line-height: 1rem;
   border-radius: 50%;
   cursor: pointer;
+  margin-bottom: 8px;
+  margin-right: 8px;
 }
 
 .pageBtn:hover {
@@ -107,6 +110,8 @@
 
 .pageSwitcher button {
   cursor: pointer;
+  margin-bottom: 8px;
+  margin-right: 8px;
 }
 
 .pageSwitcher button img {
@@ -119,4 +124,10 @@
   border: 1px solid #ffad05;
   background-color: #ccc;
   transform: translateY(-4px);
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    padding: 0 1rem;
+  }
 }

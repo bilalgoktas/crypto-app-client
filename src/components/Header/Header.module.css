@@ -9,7 +9,7 @@
   padding: 2rem;
   height: 40px;
   color: #fff;
-  background-color: #330033;
+  background-color: #550055;
   border-bottom: 1px solid #3f003f;
   box-shadow: 0 4px 2px -2px #3f003f;
   z-index: 100;
@@ -32,6 +32,12 @@
   text-decoration: none;
   color: #fff;
   margin-right: 2rem;
+  height: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.link:hover {
+  border-bottom: 1px solid #ccc;
 }
 
 .container span {

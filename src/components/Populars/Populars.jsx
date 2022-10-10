@@ -5,9 +5,9 @@ import styles from "./Populars.module.css";
 
 const Populars = () => {
   const [metaDataUrls, setMetaDataUrls] = useState([
-    "http://localhost:5000/metadata/1",
-    "http://localhost:5000/metadata/2",
-    "http://localhost:5000/metadata/3",
+    "http://localhost:5000/metadata",
+    "http://localhost:5000/metadata",
+    "http://localhost:5000/metadata",
   ]);
 
   const { data, error, isLoaded } = useMultipleFetch(metaDataUrls);
