@@ -56,9 +56,9 @@ const Header = () => {
           }}
         >
           {currentTheme === "light" ? (
-            <img src={sunIcon} alt="" />
-          ) : (
             <img src={moonIcon} alt="" />
+          ) : (
+            <img src={sunIcon} alt="" />
           )}
         </button>
       </div>
