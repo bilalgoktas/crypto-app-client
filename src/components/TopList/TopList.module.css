@@ -2,6 +2,7 @@
   margin: 0 auto 10rem auto;
   max-width: 1200px;
   padding: 0 1rem;
+  color: var(--primary-font-color);
 }
 
 .container h2 {
@@ -45,4 +46,8 @@
   margin-top: 3rem;
   text-align: end;
   font-size: 1.2rem;
+}
+
+.linkItem {
+  color: var(--primary-font-color);
 }

@@ -8,10 +8,10 @@
   align-items: center;
   padding: 2rem;
   height: 40px;
-  color: #fff;
-  background-color: #550055;
-  border-bottom: 1px solid #3f003f;
-  box-shadow: 0 4px 2px -2px #3f003f;
+
+  background-color: #ffad05;
+  border-bottom: 1px solid #000;
+  box-shadow: 0 4px 2px -2px #626262;
   z-index: 100;
 }
 
@@ -30,33 +30,36 @@
 
 .link {
   text-decoration: none;
-  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
   margin-right: 2rem;
   height: 100%;
   padding: 0.5rem 1rem;
+  color: #000;
 }
 
 .link:hover {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
 }
 
 .container span {
-  margin-left: 1rem;
+  margin: 0 1rem;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .arrowIcon {
   width: 18px;
   height: 18px;
-  filter: invert(1);
   margin-left: 4px;
-  vertical-align: text-bottom;
+  vertical-align: center;
 }
 
 .fiatSwitchContainer {
   position: fixed;
-  top: 70px;
-  right: 120px;
+  top: 65px;
+  right: 70px;
   display: flex;
   flex-direction: column;
 }
@@ -65,11 +68,23 @@
   width: 112px;
   padding: 0.5rem 1rem;
   border: none;
-  border-bottom: 1px solid #330033;
+  border-bottom: 1px solid #000;
   background-color: #ccc;
   cursor: pointer;
 }
 
 .fiatSwitchContainer button:hover {
   background-color: #aeaeae;
+}
+
+.themeToggler {
+  background: none;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.themeToggler img {
+  width: 22px;
+  height: 22px;
 }

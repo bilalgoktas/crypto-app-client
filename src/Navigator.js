@@ -10,7 +10,7 @@ import News from "./views/News/News";
 
 const Navigator = () => {
   return (
-    <div>
+    <div className="masterDiv">
       <Router>
         <AppContextProvider>
           <Layout>

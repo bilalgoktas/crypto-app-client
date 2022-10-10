@@ -4,16 +4,16 @@
   justify-content: center;
   margin-top: 10rem;
   border-top: 1px solid #ccc;
-  background-color: #ccc;
+  background-color: var(--secondary-gray);
   height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  color: var(--primary-font-color);
 }
 
 .container h2 {
-  color: #330033;
   margin-bottom: 2rem;
 }
 

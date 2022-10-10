@@ -1,7 +1,9 @@
 .container {
   max-width: 1200px;
-  margin: 120px auto 0 auto;
+  margin: 0 auto;
+  padding-top: 35px;
   min-height: 100vh;
+  color: var(--primary-font-color);
 }
 
 .top {
@@ -52,6 +54,7 @@
   background: none;
   font-size: 1.2rem;
   cursor: pointer;
+  color: var(--primary-font-color);
 }
 
 .favBtn img {

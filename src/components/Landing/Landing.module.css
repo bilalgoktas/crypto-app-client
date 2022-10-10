@@ -1,15 +1,15 @@
 .container {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 65px);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #330033;
+  background-color: var(--background-color);
   background-image: var(--landing-background);
 }
 
 .container h1 {
-  color: #fff;
+  color: var(--secondary-font-color);
   font-size: 9rem;
   margin: 0;
 }
@@ -19,7 +19,7 @@
 }
 
 .container h3 {
-  color: #fff;
+  color: var(--secondary-font-color);
   font-size: 2rem;
   margin-top: -42px;
   margin-left: 10rem;

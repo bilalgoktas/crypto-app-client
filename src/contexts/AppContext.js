@@ -13,6 +13,8 @@ export const AppContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("favCryptos")) || []
   );
 
+  const [currentTheme, setCurrentTheme] = useState("light");
+
   useEffect(() => {
     localStorage.setItem("favCryptos", JSON.stringify(favCryptos));
   }, [favCryptos]);
@@ -46,6 +48,8 @@ export const AppContextProvider = ({ children }) => {
     currentFiat,
     setCurrentFiat,
     fiatsArray,
+    currentTheme,
+    setCurrentTheme,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

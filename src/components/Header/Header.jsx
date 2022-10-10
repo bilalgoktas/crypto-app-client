@@ -4,11 +4,19 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import downArrow from "../../assets/svg/arrow-down.svg";
 import upArrow from "../../assets/svg/arrow-up.svg";
+import moonIcon from "../../assets/svg/moon.svg";
+import sunIcon from "../../assets/svg/sun.svg";
 
 const Header = () => {
   const [isFiatTogglerOpen, setIsFiatTogglerOpen] = useState(false);
 
-  const { currentFiat, setCurrentFiat, fiatsArray } = useContext(AppContext);
+  const {
+    currentFiat,
+    setCurrentFiat,
+    fiatsArray,
+    currentTheme,
+    setCurrentTheme,
+  } = useContext(AppContext);
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
@@ -40,7 +48,19 @@ const Header = () => {
             />
           )}
         </span>
-        <span>Dark Theme</span>
+        <button
+          className={styles.themeToggler}
+          onClick={() => {
+            setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+            console.log(currentTheme);
+          }}
+        >
+          {currentTheme === "light" ? (
+            <img src={sunIcon} alt="" />
+          ) : (
+            <img src={moonIcon} alt="" />
+          )}
+        </button>
       </div>
       {isFiatTogglerOpen && (
         <div className={styles.fiatSwitchContainer}>

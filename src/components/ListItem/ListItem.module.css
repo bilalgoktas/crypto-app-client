@@ -1,10 +1,11 @@
 .rowContainer {
   border-bottom: 1px solid #cccccc;
   cursor: pointer;
+  color: var(--primary-font-color);
 }
 
 .rowContainer:hover {
-  background-color: #f3f3f3;
+  background-color: var(--primary-gray);
 }
 
 .rowContainer td {

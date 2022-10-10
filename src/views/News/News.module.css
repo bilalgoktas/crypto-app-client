@@ -1,8 +1,10 @@
 .container {
-  margin: 150px auto 0 auto;
+  margin: 0 auto;
+  padding-top: 35px;
   max-width: 1200px;
   min-height: 100vh;
   text-align: center;
+  color: var(--primary-font-color);
 }
 
 .container img {
