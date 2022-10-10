@@ -33,7 +33,7 @@ const PopularCard = ({ item }) => {
             <span>{item.name}</span>
           </p>
           <p className={styles.price}>
-            <span>$</span>
+            <span>{currentFiat.symbol}</span>
             {digitFixer(data.quote[currentFiat.name]?.price, 2)}
           </p>
           <div className={styles.volume}>
