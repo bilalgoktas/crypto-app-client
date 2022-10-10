@@ -16,7 +16,10 @@ const Navigator = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cryptos/:category" element={<Cryptos />} />
+              <Route
+                path="/cryptos/:category/:currentPage"
+                element={<Cryptos />}
+              />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/crypto/:id" element={<CryptoDetail />} />
               <Route path="/news" element={<News />} />

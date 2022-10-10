@@ -78,3 +78,45 @@
 .volume {
   text-align: end;
 }
+
+.pageSwitcher {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pageSwitcher .pageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #000;
+  background-color: #e5e5e5;
+  width: 36px;
+  height: 36px;
+  border: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pageBtn:hover {
+  background-color: #dadada;
+}
+
+.pageSwitcher button {
+  cursor: pointer;
+}
+
+.pageSwitcher button img {
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+.pageSwitcher .pageBtn.active {
+  border: 1px solid #ffad05;
+  background-color: #ccc;
+  transform: translateY(-4px);
+}

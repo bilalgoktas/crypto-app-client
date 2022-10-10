@@ -10,7 +10,7 @@ const Landing = () => {
       </h1>
       <h3>Just keep updated!</h3>
       <div className={styles.buttons}>
-        <Link className={styles.link} to="/cryptos/all">
+        <Link className={styles.link} to="/cryptos/all/1">
           All Currencies
         </Link>
         <Link className={styles.link} to="/news">

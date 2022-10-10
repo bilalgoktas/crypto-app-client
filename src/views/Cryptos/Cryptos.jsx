@@ -1,26 +1,43 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
 import searchIcon from "../../assets/svg/search.svg";
+import arrowLeft from "../../assets/svg/arrow-left.svg";
+import arrowRight from "../../assets/svg/arrow-right.svg";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";
 
 const Cryptos = () => {
   const [query, setQuery] = useState("");
+  const [activePage, setActivePage] = useState(1);
   const [activeCategory, setActiveCategory] = useState("all");
 
-  let { category } = useParams();
+  const navigate = useNavigate();
+
+  let { category, currentPage } = useParams();
 
   const { currentFiat } = useContext(AppContext);
   const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/cryptos/${category}`
+    `http://localhost:5000/cryptos/${category}/${currentPage}`
   );
+
+  const [totalCount, setTotalCount] = useState(500);
+  const [perPage, setPerPage] = useState(20);
+  const [totalPageCount, setTotalPageCount] = useState([]);
+
+  useEffect(() => {
+    for (let i = 1; i <= totalCount / perPage; i++) {
+      setTotalPageCount((prevState) => [...prevState, i]);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
+      {console.log(totalPageCount)}
+      {console.log(data?.data.length)}
       <div className={styles.categorySwitcher}>
         <Link
           onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
@@ -98,6 +115,40 @@ const Cryptos = () => {
             ))
         )}
       </table>
+      <div className={styles.pageSwitcher}>
+        <button
+          onClick={() => {
+            currentPage > 1 &&
+              navigate(
+                `/cryptos/${activeCategory}/${parseInt(currentPage) - 1}`
+              );
+          }}
+        >
+          <img src={arrowLeft} alt="" />
+        </button>
+        {totalPageCount.map((number) => (
+          <Link
+            className={classNames(
+              styles.pageBtn,
+              parseInt(currentPage) === number && styles.active
+            )}
+            key={number}
+            to={`/cryptos/${activeCategory}/${number}`}
+          >
+            {number}
+          </Link>
+        ))}
+        <button
+          onClick={() => {
+            currentPage < totalPageCount.length &&
+              navigate(
+                `/cryptos/${activeCategory}/${parseInt(currentPage) + 1}`
+              );
+          }}
+        >
+          <img src={arrowRight} alt="" />
+        </button>
+      </div>
     </div>
   );
 };
