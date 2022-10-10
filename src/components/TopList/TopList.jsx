@@ -9,19 +9,17 @@ import styles from "./TopList.module.css";
 const TopList = () => {
   const { currentFiat } = useContext(AppContext);
 
-  const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/top20?convert=${currentFiat.name}`
-  );
+  const { data, error, isLoaded } = useFetch("http://localhost:5000/top10");
 
   return (
     <div className={styles.container}>
-      <h2>TOP 20</h2>
+      <h2>TOP 10</h2>
       {!isLoaded ? (
         <p>Loading ...</p>
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        <List data={data.data} error={error} isLoaded={isLoaded} />
+        <List data={data} error={error} isLoaded={isLoaded} />
       )}
 
       {/* <table>

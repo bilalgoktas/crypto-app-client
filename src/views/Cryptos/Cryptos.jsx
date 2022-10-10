@@ -13,52 +13,14 @@ import List from "../../components/List/List";
 
 const Cryptos = () => {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("all");
 
   const navigate = useNavigate();
 
-  let { category } = useParams();
-
   const { currentFiat } = useContext(AppContext);
-  const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/cryptos/${category}?convert=${currentFiat.name}`
-  );
+  const { data, error, isLoaded } = useFetch("http://localhost:5000/cryptos");
 
   return (
     <div className={styles.container}>
-      <div className={styles.categorySwitcher}>
-        <Link
-          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
-          className={classNames(
-            styles.link,
-            activeCategory === "all" && styles.active
-          )}
-          to="/cryptos/all"
-        >
-          ALL
-        </Link>
-        <Link
-          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
-          className={classNames(
-            styles.link,
-            activeCategory === "coins" && styles.active
-          )}
-          to="/cryptos/coins"
-        >
-          COINS
-        </Link>
-        <Link
-          onClick={(e) => setActiveCategory(e.target.innerText.toLowerCase())}
-          className={classNames(
-            styles.link,
-            activeCategory === "tokens" && styles.active
-          )}
-          to="/cryptos/tokens"
-        >
-          TOKENS
-        </Link>
-      </div>
-
       <div className={styles.searchContainer}>
         <img src={searchIcon} alt="" />
         <input
@@ -75,7 +37,7 @@ const Cryptos = () => {
         <td>Error occurred</td>
       ) : (
         <List
-          data={data.data?.filter((item) =>
+          data={data.filter((item) =>
             item.name.toLowerCase().includes(query.toLowerCase()) ||
             item.symbol.toLowerCase().includes(query.toLowerCase())
               ? item

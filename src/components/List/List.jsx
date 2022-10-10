@@ -22,12 +22,10 @@ const List = ({ data, error, isLoaded }) => {
           <ListItem
             key={item.id}
             id={item.id}
-            rank={item.cmc_rank}
+            cmc_rank={item.cmc_rank}
             name={item.name}
             symbol={item.symbol}
-            price={item.quote[currentFiat.name]?.price}
-            change={item.quote[currentFiat.name]?.percent_change_24h}
-            volume={item.quote[currentFiat.name]?.volume_24h}
+            quote={item.quote}
           />
         ))}
       </table>

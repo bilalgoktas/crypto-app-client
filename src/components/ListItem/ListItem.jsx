@@ -7,10 +7,10 @@ import starSolid from "../../assets/svg/star-solid.svg";
 import starRegular from "../../assets/svg/star-regular.svg";
 import useFetch from "../../hooks/useFetch";
 
-const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
+const ListItem = ({ id, symbol, name, quote, cmc_rank }) => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
     useContext(AppContext);
-  const listItem = { id, symbol, name, price, change, volume };
+  const listItem = { id, symbol, name, quote, cmc_rank };
 
   const navigate = useNavigate();
   const handleRowClick = () => {
@@ -18,7 +18,7 @@ const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
   };
 
   const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/metadata?id=${id}`
+    `http://localhost:5000/metadata/${id}`
   );
 
   return (
@@ -40,17 +40,23 @@ const ListItem = ({ id, symbol, name, price, change, volume, rank }) => {
               </button>
             )}
           </td>
-          {rank && <td className={styles.rank}>{rank}</td>}
+          {cmc_rank && <td className={styles.rank}>{cmc_rank}</td>}
           <td className={styles.logo}>
-            <img src={data.data[1].logo} alt={name} />
+            <img src={data.logo} alt={name} />
           </td>
           <td className={styles.name}>
             <span>{symbol}</span>
             <span>{name}</span>
           </td>
-          <td className={styles.price}>{digitFixer(price, 2)}</td>
-          <td className={styles.change}>{digitFixer(change, 2)}%</td>
-          <td className={styles.volume}>{digitFixer(volume, 0)}</td>
+          <td className={styles.price}>
+            {digitFixer(quote[currentFiat.name].price, 2)}
+          </td>
+          <td className={styles.change}>
+            {digitFixer(quote[currentFiat.name].percent_change_24h, 2)}%
+          </td>
+          <td className={styles.volume}>
+            {digitFixer(quote[currentFiat.name].volume_24h, 0)}
+          </td>
         </tr>
       )}
     </>

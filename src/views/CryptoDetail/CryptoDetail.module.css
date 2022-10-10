@@ -54,7 +54,10 @@
   background: none;
   font-size: 1.2rem;
   cursor: pointer;
+  width: 250px;
   color: var(--primary-font-color);
+  justify-content: space-between;
+  text-decoration: underline;
 }
 
 .favBtn img {
@@ -66,7 +69,7 @@
 .priceChange {
   display: flex;
   align-items: flex-end;
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 
 .priceChange p:nth-of-type(1) {

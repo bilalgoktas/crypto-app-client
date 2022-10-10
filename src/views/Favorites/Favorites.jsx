@@ -3,6 +3,7 @@ import styles from "./Favorites.module.css";
 import ListItem from "../../components/ListItem/ListItem";
 import { AppContext } from "../../contexts/AppContext";
 import searchIcon from "../../assets/svg/search.svg";
+import List from "../../components/List/List";
 
 const Favorites = () => {
   const { favCryptos, currentFiat } = useContext(AppContext);
@@ -20,35 +21,15 @@ const Favorites = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
-      <table>
-        <tr>
-          <th></th>
-          <th></th>
-          <th className={styles.name}>Name</th>
-          <th className={styles.price}>Price ({currentFiat.symbol})</th>
-          <th className={styles.change}>Change 24h</th>
-          <th className={styles.volume}>Volume ({currentFiat.symbol})</th>
-        </tr>
-        {favCryptos
-          .filter((item) =>
-            item.name.toLowerCase().includes(query.toLowerCase()) ||
-            item.symbol.toLowerCase().includes(query.toLowerCase())
-              ? item
-              : null
-          )
-          .map((item) => (
-            <ListItem
-              key={item.id}
-              id={item.id}
-              symbol={item.symbol}
-              name={item.name}
-              convert={item.convert}
-              price={item.price}
-              change={item.change}
-              volume={item.volume}
-            />
-          ))}
-      </table>
+
+      <List
+        data={favCryptos.filter((item) =>
+          item.name.toLowerCase().includes(query.toLowerCase()) ||
+          item.symbol.toLowerCase().includes(query.toLowerCase())
+            ? item
+            : null
+        )}
+      />
     </div>
   );
 };

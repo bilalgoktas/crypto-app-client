@@ -15,20 +15,19 @@ const CryptoDetail = () => {
     data: metaData,
     error: metaError,
     isLoaded: metaIsLoaded,
-  } = useFetch(`http://localhost:5000/metadata?id=${id}`);
+  } = useFetch(`http://localhost:5000/metadata/${id}`);
   const {
     data: price,
     error: priceError,
     isLoaded: priceIsLoaded,
-  } = useFetch(`http://localhost:5000/price?convert=${currentFiat}&id=${id}`);
+  } = useFetch(`http://localhost:5000/price?id=${id}`);
 
   const listItem = {
-    id: metaData?.data[1]?.id,
-    symbol: metaData?.data[1].symbol,
-    name: metaData?.data[1].name,
-    price: price?.data[1].quote[currentFiat.name].price,
-    change: price?.data[1].quote[currentFiat.name].percent_change_24h,
-    volume: price?.data[1].quote[currentFiat.name].volume_24h,
+    id: metaData?.id,
+    symbol: metaData?.symbol,
+    cmc_rank: price?.cmc_rank,
+    name: metaData?.name,
+    quote: price?.quote,
   };
 
   return (
@@ -42,7 +41,7 @@ const CryptoDetail = () => {
         <div className={styles.container}>
           <div className={styles.top}>
             <div className={styles.topLeft}>
-              <img src={metaData.data[1].logo} alt="" />
+              <img src={metaData.logo} alt="" />
               <div className={styles.name}>
                 <p>{listItem.symbol}</p>
                 <p>{listItem.name}</p>
@@ -50,12 +49,8 @@ const CryptoDetail = () => {
             </div>
             <div className={styles.topRight}>
               <div className={styles.favBtn}>
-                {favCryptos.some(
-                  (item) => item.id === metaData?.data[1]?.id
-                ) ? (
-                  <button
-                    onClick={(e) => removeFromFav(e, metaData?.data[1]?.id)}
-                  >
+                {favCryptos.some((item) => item.id === metaData?.id) ? (
+                  <button onClick={(e) => removeFromFav(e, metaData?.id)}>
                     <img src={starSolid} alt="" /> Remove from favorites
                   </button>
                 ) : (
@@ -65,22 +60,26 @@ const CryptoDetail = () => {
                 )}
               </div>
               <div className={styles.priceChange}>
-                <p>{digitFixer(listItem.price, 2)}</p>
+                <p>
+                  {currentFiat.symbol}
+                  {digitFixer(price?.quote["USD"].price, 2)}
+                </p>
                 <p className={styles.change}>
                   <span className={styles.label}>Last 24h Change</span>
-                  {digitFixer(listItem.change, 2)}
+                  {digitFixer(price?.quote["USD"].percent_change_24h, 2)}%
                 </p>
               </div>
 
               <p className={styles.volume}>
                 <span className={styles.label}>Last 24h Volume</span>
-                {digitFixer(listItem.volume, 0)}
+                {currentFiat.symbol}
+                {digitFixer(price?.quote["USD"].volume_24h, 0)}
               </p>
             </div>
           </div>
 
           <div className={styles.bottomContainer}>
-            <p>{metaData.data[1].description}</p>
+            <p>{metaData.description}</p>
           </div>
         </div>
       )}

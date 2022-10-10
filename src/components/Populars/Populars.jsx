@@ -5,9 +5,9 @@ import styles from "./Populars.module.css";
 
 const Populars = () => {
   const [metaDataUrls, setMetaDataUrls] = useState([
-    "http://localhost:5000/metadata",
-    "http://localhost:5000/metadata",
-    "http://localhost:5000/metadata",
+    "http://localhost:5000/metadata/1",
+    "http://localhost:5000/metadata/1027",
+    "http://localhost:5000/metadata/1839",
   ]);
 
   const { data, error, isLoaded } = useMultipleFetch(metaDataUrls);
@@ -19,9 +19,7 @@ const Populars = () => {
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        data.map((item, index) => (
-          <PopularCard key={index} index={index} item={item} />
-        ))
+        data.map((item) => <PopularCard key={item.id} item={item} />)
       )}
     </div>
   );
