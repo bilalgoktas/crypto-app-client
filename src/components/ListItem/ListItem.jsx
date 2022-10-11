@@ -24,9 +24,13 @@ const ListItem = ({ id, symbol, name, quote, cmc_rank }) => {
   return (
     <>
       {!isLoaded ? (
-        <p>Loading...</p>
+        <tr>
+          <td>Loading...</td>
+        </tr>
       ) : error ? (
-        <p>Error occurred</p>
+        <tr>
+          <td>Error occurred</td>
+        </tr>
       ) : (
         <tr className={styles.rowContainer} onClick={handleRowClick}>
           <td className={styles.favBtn}>

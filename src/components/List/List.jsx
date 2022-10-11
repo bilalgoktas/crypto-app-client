@@ -9,25 +9,29 @@ const List = ({ data, error, isLoaded }) => {
   return (
     <div className={styles.container}>
       <table>
-        <tr>
-          <th></th>
-          <th className={styles.rank}>Rank</th>
-          <th></th>
-          <th className={styles.name}>Name</th>
-          <th className={styles.price}>Price ({currentFiat.symbol})</th>
-          <th className={styles.change}>Change 24h</th>
-          <th className={styles.volume}>Volume ({currentFiat.symbol})</th>
-        </tr>
-        {data?.map((item) => (
-          <ListItem
-            key={item.id}
-            id={item.id}
-            cmc_rank={item.cmc_rank}
-            name={item.name}
-            symbol={item.symbol}
-            quote={item.quote}
-          />
-        ))}
+        <thead>
+          <tr>
+            <th></th>
+            <th className={styles.rank}>Rank</th>
+            <th></th>
+            <th className={styles.name}>Name</th>
+            <th className={styles.price}>Price ({currentFiat.symbol})</th>
+            <th className={styles.change}>Change 24h</th>
+            <th className={styles.volume}>Volume ({currentFiat.symbol})</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.map((item) => (
+            <ListItem
+              key={item.id}
+              id={item.id}
+              cmc_rank={item.cmc_rank}
+              name={item.name}
+              symbol={item.symbol}
+              quote={item.quote}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );
