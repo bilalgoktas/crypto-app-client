@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
 import styles from "./CryptoDetail.module.css";
@@ -83,7 +83,45 @@ const CryptoDetail = () => {
           </div>
 
           <div className={styles.bottomContainer}>
-            <p>{metaData.description}</p>
+            <div className={styles.supplyDetails}>
+              <div>
+                <p>Max supply</p>
+                {price?.max_supply ? (
+                  <p className={styles.numData}>
+                    {digitFixer(price?.max_supply, 0)}
+                  </p>
+                ) : (
+                  <p>There is no maximum supply limit.</p>
+                )}
+              </div>
+
+              <div>
+                <p>Circulating supply</p>
+                <p className={styles.numData}>
+                  {digitFixer(price?.circulating_supply, 0)}
+                </p>
+              </div>
+              <div>
+                <p>Total supply</p>
+
+                <p className={styles.numData}>
+                  {digitFixer(price?.total_supply, 0)}
+                </p>
+              </div>
+              <div>
+                <p>Market cap</p>
+                <p className={styles.numData}>
+                  {currentFiat.symbol}
+                  {digitFixer(price?.quote[currentFiat.name].market_cap, 0)}
+                </p>
+              </div>
+            </div>
+            <p className={styles.description}>{metaData.description}</p>
+          </div>
+          <div className={styles.linkContainer}>
+            <Link className={styles.link} to="/cryptos">
+              See other cryptocurrencies
+            </Link>
           </div>
         </div>
       )}
