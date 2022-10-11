@@ -58,3 +58,10 @@
 .volume {
   text-align: end;
 }
+
+@media only screen and (max-width: 992px) {
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

@@ -67,3 +67,28 @@
   width: 18px;
   height: 18px;
 }
+
+@media only screen and (max-width: 768px) {
+  .volume {
+    display: none;
+  }
+
+  .rank {
+    display: none;
+  }
+
+  .change {
+    display: none;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .name span:nth-child(1) {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+}

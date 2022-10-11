@@ -21,6 +21,7 @@ const Cryptos = () => {
 
   return (
     <div className={styles.container}>
+      <h2>Coins / Tokens</h2>
       <div className={styles.searchContainer}>
         <img src={searchIcon} alt="" />
         <input

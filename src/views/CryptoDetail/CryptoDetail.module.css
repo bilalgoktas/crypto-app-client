@@ -57,7 +57,7 @@
   background: none;
   font-size: 1.2rem;
   cursor: pointer;
-  width: 250px;
+  width: 180px;
   color: var(--primary-font-color);
   justify-content: space-between;
   text-decoration: underline;
@@ -116,6 +116,7 @@
 .supplyDetails .numData {
   font-size: 1.5rem;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .linkContainer {
@@ -125,4 +126,41 @@
 
 .linkContainer .link {
   color: #000;
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    margin: 0 1rem;
+  }
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .top div {
+    justify-self: center;
+  }
+
+  .bottomContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomContainer .supplyDetails {
+    margin-bottom: 5rem;
+    justify-self: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .topLeft img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .priceChange {
+    font-size: 3rem;
+  }
+
+  .volume {
+    font-size: 2rem;
+  }
 }

@@ -53,3 +53,24 @@
 
   color: black;
 }
+
+@media only screen and (max-width: 768px) {
+  .container h1 {
+    font-size: 7rem;
+  }
+
+  .container h1 span {
+    font-size: 9rem;
+  }
+
+  .container h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    margin-top: -38px;
+  }
+
+  .buttons .link {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

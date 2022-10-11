@@ -36,8 +36,12 @@ const Header = () => {
         <Link className={styles.link} to="/favorites">
           Favorites
         </Link>
-        <span onClick={() => setIsFiatTogglerOpen(!isFiatTogglerOpen)}>
-          {currentFiat.symbol} {currentFiat.name}
+        <div
+          className={styles.fiatToggler}
+          onClick={() => setIsFiatTogglerOpen(!isFiatTogglerOpen)}
+        >
+          <span>{currentFiat.symbol}</span>
+          <span> {currentFiat.name}</span>
           {isFiatTogglerOpen ? (
             <img className={styles.arrowIcon} src={upArrow} alt="up arrow" />
           ) : (
@@ -47,7 +51,7 @@ const Header = () => {
               alt="down arrow"
             />
           )}
-        </span>
+        </div>
         <button
           className={styles.themeToggler}
           onClick={() => {

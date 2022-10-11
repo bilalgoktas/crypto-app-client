@@ -8,31 +8,9 @@
   color: var(--primary-font-color);
 }
 
-.categorySwitcher {
-  display: flex;
-}
-
-.categorySwitcher .link {
-  margin-right: 2rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 1rem;
-  border-bottom: 2px solid transparent;
-  color: var(--primary-font-color);
-}
-
-.link.active {
-  color: #ffad05;
-  border-bottom: 2px solid #ffad05;
-}
-
-.link.active:hover {
-  border-bottom: 2px solid #ffad05 !important;
-}
-
-.categorySwitcher .link:hover {
-  border-bottom: 2px solid var(--primary-font-color);
+.container h2 {
+  margin-bottom: 3rem;
+  font-size: 3rem;
 }
 
 .searchContainer {
@@ -129,6 +107,7 @@
 
 @media only screen and (max-width: 992px) {
   .container {
-    padding: 0 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }

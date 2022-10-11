@@ -1,3 +1,16 @@
 .container table {
   color: var(--primary-font-color);
 }
+
+@media only screen and (max-width: 768px) {
+  .volume {
+    display: none;
+  }
+  .rank {
+    display: none;
+  }
+
+  .change {
+    display: none;
+  }
+}
