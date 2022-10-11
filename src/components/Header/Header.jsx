@@ -6,8 +6,9 @@ import downArrow from "../../assets/svg/arrow-down.svg";
 import upArrow from "../../assets/svg/arrow-up.svg";
 import moonIcon from "../../assets/svg/moon.svg";
 import sunIcon from "../../assets/svg/sun.svg";
+import barsIcon from "../../assets/svg/bars.svg";
 
-const Header = () => {
+const Header = ({ setIsSideMenuOpen }) => {
   const [isFiatTogglerOpen, setIsFiatTogglerOpen] = useState(false);
 
   const {
@@ -19,6 +20,12 @@ const Header = () => {
   } = useContext(AppContext);
   return (
     <div className={styles.container}>
+      <img
+        onClick={() => setIsSideMenuOpen((prevState) => !prevState)}
+        className={styles.bars}
+        src={barsIcon}
+        alt=""
+      />
       <div className={styles.leftContainer}>
         <Link className={styles.link} to="/cryptos">
           Cryptocurrencies

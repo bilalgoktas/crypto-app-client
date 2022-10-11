@@ -12,7 +12,11 @@
   background-color: #ffad05;
   border-bottom: 1px solid #000;
   box-shadow: 0 4px 2px -2px #626262;
-  z-index: 100;
+  z-index: 1000;
+}
+
+.bars {
+  display: none;
 }
 
 .leftContainer {
@@ -92,4 +96,20 @@
 .themeToggler img {
   width: 22px;
   height: 22px;
+}
+
+@media only screen and (max-width: 992px) {
+  .bars {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer .link {
+    display: none;
+  }
 }
