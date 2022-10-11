@@ -63,7 +63,6 @@ const Header = ({ setIsSideMenuOpen }) => {
           className={styles.themeToggler}
           onClick={() => {
             setCurrentTheme(currentTheme === "light" ? "dark" : "light");
-            console.log(currentTheme);
           }}
         >
           {currentTheme === "light" ? (
