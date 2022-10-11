@@ -52,7 +52,7 @@ const TopList = () => {
         )}
       </table> */}
       <div className={styles.link}>
-        <Link className={styles.linkItem} to="/cryptos/all">
+        <Link className={styles.linkItem} to="/cryptos">
           See more cryptocurrencies
         </Link>
       </div>

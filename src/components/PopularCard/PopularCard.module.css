@@ -58,6 +58,10 @@
   margin-top: 0.5rem;
 }
 
+.link {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 992px) {
   .container {
     margin-bottom: 3rem;
