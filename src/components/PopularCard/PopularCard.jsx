@@ -34,8 +34,7 @@ const PopularCard = ({ item }) => {
               </div>
             </div>
             <p className={styles.coinName}>
-              {item.symbol}
-              <span>{item.name}</span>
+              {item.symbol} <span>{item.name}</span>
             </p>
             <p className={styles.price}>
               <span>{currentFiat.symbol}</span>
