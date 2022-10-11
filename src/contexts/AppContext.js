@@ -13,7 +13,9 @@ export const AppContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("favCryptos")) || []
   );
 
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState(
+    JSON.parse(localStorage.getItem("currentTheme")) || "light"
+  );
 
   useEffect(() => {
     localStorage.setItem("favCryptos", JSON.stringify(favCryptos));
@@ -22,6 +24,10 @@ export const AppContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("currentFiat", JSON.stringify(currentFiat));
   }, [currentFiat]);
+
+  useEffect(() => {
+    localStorage.setItem("currentTheme", JSON.stringify(currentTheme));
+  }, [currentTheme]);
 
   const addToFav = async (e, item) => {
     e.stopPropagation();

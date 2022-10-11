@@ -62,18 +62,22 @@ const CryptoDetail = () => {
               <div className={styles.priceChange}>
                 <p>
                   {currentFiat.symbol}
-                  {digitFixer(price?.quote["USD"].price, 2)}
+                  {digitFixer(price?.quote[currentFiat.name].price, 2)}
                 </p>
                 <p className={styles.change}>
                   <span className={styles.label}>Last 24h Change</span>
-                  {digitFixer(price?.quote["USD"].percent_change_24h, 2)}%
+                  {digitFixer(
+                    price?.quote[currentFiat.name].percent_change_24h,
+                    2
+                  )}
+                  %
                 </p>
               </div>
 
               <p className={styles.volume}>
                 <span className={styles.label}>Last 24h Volume</span>
                 {currentFiat.symbol}
-                {digitFixer(price?.quote["USD"].volume_24h, 0)}
+                {digitFixer(price?.quote[currentFiat.name].volume_24h, 0)}
               </p>
             </div>
           </div>
