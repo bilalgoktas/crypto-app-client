@@ -41,6 +41,10 @@
   margin: 0.5rem 2rem;
 }
 
+.container li:hover {
+  text-decoration: underline;
+}
+
 .container a {
   color: var(--primary-font-color);
   text-decoration: none;

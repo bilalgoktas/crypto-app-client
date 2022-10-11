@@ -17,6 +17,7 @@
 
 .bars {
   display: none;
+  cursor: pointer;
 }
 
 .leftContainer {
