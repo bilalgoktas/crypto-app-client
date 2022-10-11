@@ -7,9 +7,12 @@
 }
 
 .top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--secondary-gray);
 }
 
 .topLeft {
@@ -90,4 +93,36 @@
 .volume span {
   display: block;
   font-size: 1rem;
+}
+
+.bottomContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--secondary-gray);
+  padding-bottom: 4rem;
+}
+
+.description {
+  line-height: 1.7rem;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+.supplyDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.supplyDetails .numData {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.linkContainer {
+  text-align: end;
+  margin-top: 2rem;
+}
+
+.linkContainer .link {
+  color: #000;
 }
