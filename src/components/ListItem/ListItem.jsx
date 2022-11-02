@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./ListItem.module.css";
 import digitFixer from "../../utils/digitFixer";
 import { AppContext } from "../../contexts/AppContext";
 import starSolid from "../../assets/svg/star-solid.svg";
 import starRegular from "../../assets/svg/star-regular.svg";
 import useFetch from "../../hooks/useFetch";
+import { URI } from "../../settings/config";
 
 const ListItem = ({ id, symbol, name, quote, cmc_rank }) => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
@@ -17,9 +18,7 @@ const ListItem = ({ id, symbol, name, quote, cmc_rank }) => {
     navigate(`/crypto/${id}`);
   };
 
-  const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/metadata/${id}`
-  );
+  const { data, error, isLoaded } = useFetch(`${URI}/metadata/${id}`);
 
   return (
     <>

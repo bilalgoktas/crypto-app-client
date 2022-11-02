@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../contexts/AppContext";
 import useFetch from "../../hooks/useFetch";
+import { URI } from "../../settings/config";
 import List from "../List/List";
-import ListItem from "../ListItem/ListItem";
 import styles from "./TopList.module.css";
 
 const TopList = () => {
-  const { currentFiat } = useContext(AppContext);
-
-  const { data, error, isLoaded } = useFetch("http://localhost:5000/top10");
+  const { data, error, isLoaded } = useFetch(`${URI}/top10`);
 
   return (
     <div className={styles.container}>

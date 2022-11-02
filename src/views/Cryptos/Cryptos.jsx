@@ -1,23 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import ListItem from "../../components/ListItem/ListItem";
-import { AppContext } from "../../contexts/AppContext";
+import React, { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import styles from "./Cryptos.module.css";
 import searchIcon from "../../assets/svg/search.svg";
-import arrowLeft from "../../assets/svg/arrow-left.svg";
-import arrowRight from "../../assets/svg/arrow-right.svg";
-import { useParams } from "react-router-dom";
-import classNames from "classnames";
 import List from "../../components/List/List";
+import { URI } from "../../settings/config";
 
 const Cryptos = () => {
   const [query, setQuery] = useState("");
 
-  const navigate = useNavigate();
-
-  const { currentFiat } = useContext(AppContext);
-  const { data, error, isLoaded } = useFetch("http://localhost:5000/cryptos");
+  const { data, error, isLoaded } = useFetch(`${URI}/cryptos`);
 
   return (
     <div className={styles.container}>

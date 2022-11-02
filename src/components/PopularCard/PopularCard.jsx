@@ -4,13 +4,12 @@ import styles from "./PopularCard.module.css";
 import digitFixer from "../../utils/digitFixer";
 import useFetch from "../../hooks/useFetch";
 import { AppContext } from "../../contexts/AppContext";
+import { URI } from "../../settings/config";
 
 const PopularCard = ({ item }) => {
   const { currentFiat } = useContext(AppContext);
 
-  const { data, error, isLoaded } = useFetch(
-    `http://localhost:5000/popprice?id=${item.id}`
-  );
+  const { data, error, isLoaded } = useFetch(`${URI}/popprice?id=${item.id}`);
   return (
     <>
       {!isLoaded ? (

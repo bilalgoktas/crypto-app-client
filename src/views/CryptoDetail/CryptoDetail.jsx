@@ -6,6 +6,7 @@ import styles from "./CryptoDetail.module.css";
 import digitFixer from "../../utils/digitFixer";
 import starSolid from "../../assets/svg/star-solid.svg";
 import starRegular from "../../assets/svg/star-regular.svg";
+import { URI } from "../../settings/config";
 
 const CryptoDetail = () => {
   const { favCryptos, addToFav, removeFromFav, currentFiat } =
@@ -15,12 +16,8 @@ const CryptoDetail = () => {
     data: metaData,
     error: metaError,
     isLoaded: metaIsLoaded,
-  } = useFetch(`http://localhost:5000/metadata/${id}`);
-  const {
-    data: price,
-    error: priceError,
-    isLoaded: priceIsLoaded,
-  } = useFetch(`http://localhost:5000/price?id=${id}`);
+  } = useFetch(`${URI}/metadata/${id}`);
+  const { data: price } = useFetch(`${URI}/price?id=${id}`);
 
   const listItem = {
     id: metaData?.id,
