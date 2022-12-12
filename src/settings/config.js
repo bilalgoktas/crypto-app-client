@@ -1,1 +1,1 @@
-export const URI = "https://crypto-app-api3.onrender.com/";
+export const URI = "https://crypto-app-api3.onrender.com";
