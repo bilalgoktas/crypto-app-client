@@ -1,5 +1,5 @@
 {
-  "type": "mdoule",
+  "type": "module",
   "name": "crypto-app-client",
   "version": "0.1.0",
   "private": true,
